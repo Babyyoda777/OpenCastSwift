@@ -56,7 +56,7 @@ public class CastRequest: NSObject {
     }
 }
 
-@objc public protocol CastClientDelegate: class {
+@objc public protocol CastClientDelegate: AnyObject {
     
     @objc optional func castClient(_ client: CastClient, willConnectTo device: CastDevice)
     @objc optional func castClient(_ client: CastClient, didConnectTo device: CastDevice)
@@ -175,8 +175,8 @@ public final class CastClient: NSObject, RequestDispatchable, Channelable {
                 
                 self.inputStream.delegate = self
                 
-                self.inputStream.schedule(in: .current, forMode: .defaultRunLoopMode)
-                self.outputStream.schedule(in: .current, forMode: .defaultRunLoopMode)
+                self.inputStream.schedule(in: .current, forMode: .default)
+                self.outputStream.schedule(in: .current, forMode: .default)
                 
                 self.inputStream.open()
                 self.outputStream.open()
@@ -198,13 +198,13 @@ public final class CastClient: NSObject, RequestDispatchable, Channelable {
         socketQueue.async {
             if self.inputStream != nil {
                 self.inputStream.close()
-                self.inputStream.remove(from: RunLoop.current, forMode: .defaultRunLoopMode)
+                self.inputStream.remove(from: RunLoop.current, forMode: .default)
                 self.inputStream = nil
             }
             
             if self.outputStream != nil {
                 self.outputStream.close()
-                self.outputStream.remove(from: RunLoop.current, forMode: .defaultRunLoopMode)
+                self.outputStream.remove(from: RunLoop.current, forMode: .default)
                 self.outputStream = nil
             }
         }

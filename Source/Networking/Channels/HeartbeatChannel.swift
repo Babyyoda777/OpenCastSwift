@@ -20,7 +20,7 @@ class HeartbeatChannel: CastChannel {
         didSet {
             guard let timer = disconnectTimer else { return }
 
-            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .common)
         }
     }
 
@@ -91,7 +91,7 @@ class HeartbeatChannel: CastChannel {
     }
 }
 
-protocol HeartbeatChannelDelegate: class {
+protocol HeartbeatChannelDelegate: AnyObject {
     func channelDidConnect(_ channel: HeartbeatChannel)
     func channelDidTimeout(_ channel: HeartbeatChannel)
 }
