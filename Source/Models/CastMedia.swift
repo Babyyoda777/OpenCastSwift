@@ -37,56 +37,56 @@ public final class CastMedia: NSObject {
         self.currentTime = currentTime
     }
     
-//    public convenience init(title: String, url: URL, poster: URL, contentType: String, streamType: String, autoplay: Bool, currentTime: Double) {
-//        guard let type = CastMediaStreamType(rawValue: streamType) else {
-//            fatalError("Invalid media stream type \(streamType)")
-//        }
-//      
-//        self.init(title: title, url: url, poster: poster, contentType: contentType, streamType: type, autoplay: autoplay, currentTime: currentTime)
-//    }
+    //    public convenience init(title: String, url: URL, poster: URL, contentType: String, streamType: String, autoplay: Bool, currentTime: Double) {
+    //        guard let type = CastMediaStreamType(rawValue: streamType) else {
+    //            fatalError("Invalid media stream type \(streamType)")
+    //        }
+    //
+    //        self.init(title: title, url: url, poster: poster, contentType: contentType, streamType: type, autoplay: autoplay, currentTime: currentTime)
+    //    }
 }
 
 extension CastMedia {
     
     var dict: [String: Any] {
-      if let poster = poster {
-        return [
-          CastJSONPayloadKeys.autoplay: autoplay,
-          CastJSONPayloadKeys.activeTrackIds: [],
-          CastJSONPayloadKeys.repeatMode: "REPEAT_OFF",
-          CastJSONPayloadKeys.currentTime: currentTime,
-          CastJSONPayloadKeys.media: [
-            CastJSONPayloadKeys.contentId: url.absoluteString,
-            CastJSONPayloadKeys.contentType: contentType,
-            CastJSONPayloadKeys.streamType: streamType.rawValue,
-            CastJSONPayloadKeys.metadata: [
-              CastJSONPayloadKeys.type: 0,
-              CastJSONPayloadKeys.metadataType: 0,
-              CastJSONPayloadKeys.title: title,
-              CastJSONPayloadKeys.images: [
-                [CastJSONPayloadKeys.url: poster.absoluteString]
-              ]
+        if let poster = poster {
+            return [
+                CastJSONPayloadKeys.autoplay: autoplay,
+                CastJSONPayloadKeys.activeTrackIds: [],
+                CastJSONPayloadKeys.repeatMode: "REPEAT_OFF",
+                CastJSONPayloadKeys.currentTime: currentTime,
+                CastJSONPayloadKeys.media: [
+                    CastJSONPayloadKeys.contentId: url.absoluteString,
+                    CastJSONPayloadKeys.contentType: contentType,
+                    CastJSONPayloadKeys.streamType: streamType.rawValue,
+                    CastJSONPayloadKeys.metadata: [
+                        CastJSONPayloadKeys.type: 0,
+                        CastJSONPayloadKeys.metadataType: 0,
+                        CastJSONPayloadKeys.title: title,
+                        CastJSONPayloadKeys.images: [
+                            [CastJSONPayloadKeys.url: poster.absoluteString]
+                        ]
+                    ]
+                ]
             ]
-          ]
-        ]
-      } else {
-        return [
-          CastJSONPayloadKeys.autoplay: autoplay,
-          CastJSONPayloadKeys.activeTrackIds: [],
-          CastJSONPayloadKeys.repeatMode: "REPEAT_OFF",
-          CastJSONPayloadKeys.currentTime: currentTime,
-          CastJSONPayloadKeys.media: [
-            CastJSONPayloadKeys.contentId: url.absoluteString,
-            CastJSONPayloadKeys.contentType: contentType,
-            CastJSONPayloadKeys.streamType: streamType.rawValue,
-            CastJSONPayloadKeys.metadata: [
-              CastJSONPayloadKeys.type: 0,
-              CastJSONPayloadKeys.metadataType: 0,
-              CastJSONPayloadKeys.title: title
+        } else {
+            return [
+                CastJSONPayloadKeys.autoplay: autoplay,
+                CastJSONPayloadKeys.activeTrackIds: [],
+                CastJSONPayloadKeys.repeatMode: "REPEAT_OFF",
+                CastJSONPayloadKeys.currentTime: currentTime,
+                CastJSONPayloadKeys.media: [
+                    CastJSONPayloadKeys.contentId: url.absoluteString,
+                    CastJSONPayloadKeys.contentType: contentType,
+                    CastJSONPayloadKeys.streamType: streamType.rawValue,
+                    CastJSONPayloadKeys.metadata: [
+                        CastJSONPayloadKeys.type: 0,
+                        CastJSONPayloadKeys.metadataType: 0,
+                        CastJSONPayloadKeys.title: title
+                    ]
+                ]
             ]
-          ]
-        ]
-      }
+        }
     }
     
 }

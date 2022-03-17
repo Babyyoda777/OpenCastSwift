@@ -25,7 +25,7 @@ extension CastStatus {
     
     convenience init(json: JSON) {
         self.init()
-//        print(json)
+        //        print(json)
         let status = json[CastJSONPayloadKeys.status]
         let volume = status[CastJSONPayloadKeys.volume]
         
@@ -37,7 +37,7 @@ extension CastStatus {
         }
         
         if let apps = status[CastJSONPayloadKeys.applications].array {
-          self.apps = apps.compactMap(CastApp.init)
+            self.apps = apps.compactMap(CastApp.init)
         }
     }
     
