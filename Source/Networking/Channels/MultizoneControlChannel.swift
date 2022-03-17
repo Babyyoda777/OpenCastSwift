@@ -66,10 +66,10 @@ class MultizoneControlChannel: CastChannel {
             send(request) { result in
                 switch result {
                 case .success(let json):
-                    completion(Result(value: CastStatus(json: json)))
+                    completion(.success(CastStatus(json: json)))
 
                 case .failure(let error):
-                    completion(Result(error: error))
+                    completion(.failure(error))
                 }
             }
         } else {
