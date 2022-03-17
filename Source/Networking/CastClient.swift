@@ -9,7 +9,6 @@
 import Foundation
 import SwiftProtobuf
 import SwiftyJSON
-import Result
 
 public enum CastPayload {
   case json([String: Any])

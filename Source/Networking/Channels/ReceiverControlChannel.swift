@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 import SwiftyJSON
 
 class ReceiverControlChannel: CastChannel {
