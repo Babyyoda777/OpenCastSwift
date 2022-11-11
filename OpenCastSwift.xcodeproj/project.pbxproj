@@ -75,12 +75,14 @@
 		02F6F1EE2010062300CF01E1 /* Channelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F6F1ED2010062300CF01E1 /* Channelable.swift */; };
 		02F6F1EF2010066F00CF01E1 /* Channelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F6F1ED2010062300CF01E1 /* Channelable.swift */; };
 		02F6F1F02010066F00CF01E1 /* Channelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F6F1ED2010062300CF01E1 /* Channelable.swift */; };
-		95CBAB2527E33BEC007694FB /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2327E33BEC007694FB /* SwiftProtobuf.xcframework */; };
-		95CBAB2727E33BEC007694FB /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2427E33BEC007694FB /* SwiftyJSON.xcframework */; };
 		95CBAB2A27E33BF2007694FB /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2327E33BEC007694FB /* SwiftProtobuf.xcframework */; };
 		95CBAB2C27E33BF2007694FB /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2427E33BEC007694FB /* SwiftyJSON.xcframework */; };
 		95CBAB2F27E33BF8007694FB /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2327E33BEC007694FB /* SwiftProtobuf.xcframework */; };
 		95CBAB3127E33BF8007694FB /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2427E33BEC007694FB /* SwiftyJSON.xcframework */; };
+		C52078D2291ED06D00DFB85E /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2327E33BEC007694FB /* SwiftProtobuf.xcframework */; };
+		C52078D3291ED06D00DFB85E /* SwiftProtobuf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2327E33BEC007694FB /* SwiftProtobuf.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C52078D5291ED06E00DFB85E /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2427E33BEC007694FB /* SwiftyJSON.xcframework */; };
+		C52078D6291ED06E00DFB85E /* SwiftyJSON.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95CBAB2427E33BEC007694FB /* SwiftyJSON.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DD15225D1DBACFE4004B5762 /* CASTV2Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15225C1DBACFE4004B5762 /* CASTV2Protocol.swift */; };
 		DD15225F1DBAD013004B5762 /* CastStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15225E1DBAD013004B5762 /* CastStatus.swift */; };
 		DD1522611DBAD02D004B5762 /* CastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1522601DBAD02D004B5762 /* CastApp.swift */; };
@@ -90,6 +92,21 @@
 		DD674A451DB7E89500E1FC24 /* CastDeviceScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD674A441DB7E89500E1FC24 /* CastDeviceScanner.swift */; };
 		DDC239481DB83E0200066B2F /* CastClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC239471DB83E0200066B2F /* CastClient.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C52078D4291ED06D00DFB85E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C52078D3291ED06D00DFB85E /* SwiftProtobuf.xcframework in Embed Frameworks */,
+				C52078D6291ED06E00DFB85E /* SwiftyJSON.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		020C21AC200EE20D006E53CA /* DeviceConnectionChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionChannel.swift; sourceTree = "<group>"; };
@@ -157,8 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95CBAB2527E33BEC007694FB /* SwiftProtobuf.xcframework in Frameworks */,
-				95CBAB2727E33BEC007694FB /* SwiftyJSON.xcframework in Frameworks */,
+				C52078D2291ED06D00DFB85E /* SwiftProtobuf.xcframework in Frameworks */,
+				C52078D5291ED06E00DFB85E /* SwiftyJSON.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +406,7 @@
 				DD674A341DB7E83400E1FC24 /* Frameworks */,
 				DD674A351DB7E83400E1FC24 /* Headers */,
 				DD674A361DB7E83400E1FC24 /* Resources */,
+				C52078D4291ED06D00DFB85E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

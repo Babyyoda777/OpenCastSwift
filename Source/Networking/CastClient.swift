@@ -175,8 +175,8 @@ public final class CastClient: NSObject, RequestDispatchable, Channelable {
                 
                 self.inputStream.delegate = self
                 
-                self.inputStream.schedule(in: .current, forMode: .default)
-                self.outputStream.schedule(in: .current, forMode: .default)
+                self.inputStream.schedule(in: .current, forMode: RunLoopMode.defaultRunLoopMode)
+                self.outputStream.schedule(in: .current, forMode: RunLoopMode.defaultRunLoopMode)
                 
                 self.inputStream.open()
                 self.outputStream.open()
@@ -198,13 +198,13 @@ public final class CastClient: NSObject, RequestDispatchable, Channelable {
         socketQueue.async {
             if self.inputStream != nil {
                 self.inputStream.close()
-                self.inputStream.remove(from: RunLoop.current, forMode: .default)
+                self.inputStream.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
                 self.inputStream = nil
             }
             
             if self.outputStream != nil {
                 self.outputStream.close()
-                self.outputStream.remove(from: RunLoop.current, forMode: .default)
+                self.outputStream.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
                 self.outputStream = nil
             }
         }

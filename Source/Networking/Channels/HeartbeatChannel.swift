@@ -20,7 +20,7 @@ class HeartbeatChannel: CastChannel {
         didSet {
             guard let timer = disconnectTimer else { return }
 
-            RunLoop.main.add(timer, forMode: .common)
+            RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
         }
     }
 
