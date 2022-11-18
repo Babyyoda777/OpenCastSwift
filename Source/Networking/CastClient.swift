@@ -451,9 +451,13 @@ public final class CastClient: NSObject, RequestDispatchable, Channelable {
         guard outputStream != nil, let app = connectedApp else { return }
         
         if let mediaStatus = currentMediaStatus {
+            print("exists current media status")
             mediaControlChannel.sendPause(for: app, mediaSessionId: mediaStatus.mediaSessionId)
         } else {
+            print("no current media status")
+            print("requesting media status")
             mediaControlChannel.requestMediaStatus(for: app) { result in
+                print("received media status")
                 switch result {
                 case .success(let mediaStatus):
                     self.mediaControlChannel.sendPause(for: app, mediaSessionId: mediaStatus.mediaSessionId)

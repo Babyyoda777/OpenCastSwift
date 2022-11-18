@@ -52,9 +52,12 @@ class MediaControlChannel: CastChannel {
             send(request) { result in
                 switch result {
                 case .success(let json):
+                    print("success")
+                    print(json)
                     completion(.success(CastMediaStatus(json: json)))
 
                 case .failure(let error):
+                    print("failure")
                     completion(.failure(error))
                 }
             }
